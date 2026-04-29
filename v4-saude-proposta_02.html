@@ -1,0 +1,2000 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V4 Saúde | Produtos de Saúde, Estética e Médico-Hospitalares</title>
+  <meta name="description" content="Distribuidora de produtos de Saúde, Estética e Médico-hospitalares em Santo Antônio da Platina, PR. Produtos certificados, agilidade documental, suporte técnico e soluções para hospitais, clínicas e laboratórios.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="V4 Saúde | Produtos de Saúde, Estética e Médico-Hospitalares">
+  <meta property="og:description" content="Soluções completas para instituições públicas e privadas de saúde, com produtos certificados, logística ágil e atendimento técnico personalizado.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0a0a0a;
+      --bg-soft: rgba(10, 10, 10, .84);
+      --text: rgba(255,255,255,.95);
+      --muted: rgba(255,255,255,.68);
+      --soft: rgba(255,255,255,.48);
+      --surface: rgba(255,255,255,.055);
+      --surface-strong: rgba(255,255,255,.10);
+      --border: rgba(255,255,255,.10);
+      --brand: #18a4ad;
+      --brand-2: #5eead4;
+      --brand-dark: #06292d;
+      --ring: rgba(94,234,212,.30);
+    }
+
+    html[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f7fbfb;
+      --bg-soft: rgba(247,251,251,.86);
+      --text: rgba(4,25,29,.94);
+      --muted: rgba(4,25,29,.66);
+      --soft: rgba(4,25,29,.48);
+      --surface: rgba(255,255,255,.72);
+      --surface-strong: rgba(255,255,255,.92);
+      --border: rgba(5,76,84,.13);
+      --brand: #0f8f98;
+      --brand-2: #11b8aa;
+      --brand-dark: #e2fbf8;
+      --ring: rgba(17,184,170,.22);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      transition: background .35s ease, color .35s ease;
+    }
+
+    .font-geist { font-family: Geist, Inter, sans-serif; }
+    .container-x { width: min(1240px, calc(100% - 32px)); margin-inline: auto; }
+    .text-muted { color: var(--muted); }
+    .text-soft { color: var(--soft); }
+    .border-subtle { border-color: var(--border); }
+    .glass { background: var(--surface); border: 1px solid var(--border); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .glass-strong { background: var(--surface-strong); border: 1px solid var(--border); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+
+    .background-blur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -10;
+      width: 100%;
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      filter: blur(0px) brightness(.82) saturate(.95);
+      transform: scale(1);
+      animation: scrollBlur linear both;
+      animation-timeline: scroll();
+      animation-range: 0px 820px;
+    }
+
+    html[data-theme="light"] .background-blur {
+      opacity: .40;
+      filter: blur(0px) brightness(1.08) saturate(.78);
+    }
+
+    .page-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -9;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 34%, rgba(24,164,173,.30), transparent 34rem),
+        radial-gradient(circle at 80% 15%, rgba(94,234,212,.16), transparent 28rem),
+        linear-gradient(to bottom, rgba(10,10,10,.30), var(--bg) 88%);
+    }
+
+    html[data-theme="light"] .page-overlay {
+      background:
+        radial-gradient(circle at 50% 34%, rgba(24,164,173,.20), transparent 33rem),
+        linear-gradient(to bottom, rgba(247,251,251,.20), var(--bg) 88%);
+    }
+
+    @keyframes scrollBlur {
+      0% { filter: blur(0px) brightness(.86) saturate(.95); transform: scale(1); }
+      100% { filter: blur(20px) brightness(.42) saturate(.70); transform: scale(1.06); }
+    }
+
+    @keyframes fadeSlideIn {
+      0% { opacity: 0; transform: translateY(30px); filter: blur(8px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+    }
+
+    @keyframes slideInBlur {
+      0% { opacity: 0; transform: translateX(-30px); filter: blur(8px); }
+      100% { opacity: 1; transform: translateX(0); filter: blur(0px); }
+    }
+
+    @keyframes fadeInScale {
+      0% { opacity: 0; transform: scale(.95); filter: blur(6px); }
+      100% { opacity: 1; transform: scale(1); filter: blur(0px); }
+    }
+
+    .animate-on-scroll { opacity: 0; animation-play-state: paused !important; }
+    .animate-on-scroll.animate { animation-play-state: running !important; }
+    .fade-slide { animation: fadeSlideIn 1s ease-out .1s both; }
+
+    .nav-link {
+      color: var(--muted);
+      font-family: Geist, Inter, sans-serif;
+      font-size: .88rem;
+      font-weight: 400;
+      transition: color .2s ease;
+    }
+    .nav-link:hover { color: var(--text); }
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .58rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: .74rem 1.1rem;
+      font-family: Geist, Inter, sans-serif;
+      font-size: .94rem;
+      font-weight: 500;
+      line-height: 1;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+      overflow: hidden;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-glass { background: var(--surface); color: var(--text); }
+    .btn-glass:hover { background: var(--surface-strong); }
+    .btn-brand {
+      border-color: rgba(94,234,212,.36);
+      background: linear-gradient(135deg, rgba(24,164,173,.96), rgba(94,234,212,.88));
+      color: #021618;
+      box-shadow: 0 18px 48px rgba(24,164,173,.22), inset 0 1px 0 rgba(255,255,255,.18);
+      font-weight: 700;
+    }
+    .btn-brand:hover { box-shadow: 0 24px 70px rgba(24,164,173,.30), inset 0 1px 0 rgba(255,255,255,.20); }
+    .btn .shine {
+      pointer-events: none;
+      position: absolute;
+      left: 50%;
+      right: 50%;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.85), transparent);
+      opacity: .85;
+      transition: left .45s ease, right .45s ease;
+    }
+    .btn:hover .shine { left: 0; right: 0; }
+
+    .theme-switch {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 4.35rem;
+      height: 2.18rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,.07);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 10px 28px rgba(0,0,0,.14);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      cursor: pointer;
+      transition: background .25s ease, border-color .25s ease, transform .2s ease, box-shadow .25s ease;
+    }
+    .theme-switch:hover {
+      transform: translateY(-1px);
+      border-color: rgba(94,234,212,.30);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 14px 38px rgba(24,164,173,.14);
+    }
+    .theme-switch:focus-visible { outline: 4px solid var(--ring); outline-offset: 3px; }
+    .theme-switch-track { position: relative; display: block; width: 100%; height: 100%; }
+    .theme-switch-thumb {
+      position: absolute;
+      top: 50%;
+      left: .25rem;
+      width: 1.66rem;
+      height: 1.66rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #fff, #dffdfa);
+      transform: translateY(-50%);
+      box-shadow: 0 8px 22px rgba(0,0,0,.30);
+      transition: left .28s cubic-bezier(.2,.8,.2,1), background .28s ease, box-shadow .28s ease;
+      z-index: 2;
+    }
+    .theme-switch-icon {
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      transform: translateY(-50%);
+      color: var(--soft);
+      transition: color .22s ease, opacity .22s ease;
+    }
+    .theme-switch-icon svg { width: .9rem; height: .9rem; }
+    .theme-switch-sun { left: .45rem; }
+    .theme-switch-moon { right: .45rem; }
+    html[data-theme="dark"] .theme-switch-moon { color: var(--brand-2); opacity: 1; }
+    html[data-theme="dark"] .theme-switch-sun { opacity: .44; }
+    html[data-theme="light"] .theme-switch { background: rgba(255,255,255,.78); }
+    html[data-theme="light"] .theme-switch-thumb {
+      left: calc(100% - 1.91rem);
+      background: linear-gradient(135deg, #fff7d6, #ffd36e);
+      box-shadow: 0 8px 22px rgba(239,178,42,.22);
+    }
+    html[data-theme="light"] .theme-switch-sun { color: #d99000; opacity: 1; }
+    html[data-theme="light"] .theme-switch-moon { opacity: .44; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: .38rem .8rem;
+      font-family: Geist, Inter, sans-serif;
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-title {
+      font-family: Geist, Inter, sans-serif;
+      font-size: clamp(4.3rem, 12vw, 9.25rem);
+      line-height: .84;
+      letter-spacing: -.085em;
+      font-weight: 700;
+    }
+    .section-title {
+      font-family: Geist, Inter, sans-serif;
+      font-size: clamp(2.55rem, 6vw, 5.5rem);
+      line-height: .9;
+      letter-spacing: -.06em;
+      font-weight: 650;
+    }
+    .title-sm {
+      font-family: Geist, Inter, sans-serif;
+      font-size: clamp(2rem, 4vw, 3.65rem);
+      line-height: .96;
+      letter-spacing: -.05em;
+      font-weight: 650;
+    }
+    .brand-gradient {
+      background: linear-gradient(135deg, #f4ffff, var(--brand-2), var(--brand));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    html[data-theme="light"] .brand-gradient { background: linear-gradient(135deg, #06343a, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    .section-pad { padding: 92px 0; }
+    .card {
+      border-radius: 10px !important;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
+    }
+    .card:hover { transform: translateY(-4px); background: var(--surface-strong); border-color: rgba(94,234,212,.24); }
+    .icon-box {
+      display: inline-flex;
+      height: 2.45rem;
+      width: 2.45rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: .9rem;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.05);
+      color: var(--brand-2);
+    }
+
+
+    .structure-link-grid {
+      display: grid;
+      gap: .95rem;
+    }
+    .structure-link-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 116px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 1rem;
+      padding: .72rem;
+      color: var(--text);
+      text-decoration: none;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .structure-link-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at 18% 22%, rgba(94,234,212,.10), transparent 16rem);
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+    .structure-link-card:hover::after { opacity: 1; }
+    .structure-link-card:hover .structure-link-media svg { transform: scale(1.06); }
+    .structure-link-card:hover .structure-link-arrow {
+      color: #031416;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      border-color: rgba(94,234,212,.44);
+      transform: translate(2px, -2px);
+    }
+    .structure-link-media {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 116px;
+      min-height: 86px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(24,164,173,.18), rgba(94,234,212,.06));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .structure-link-media svg {
+      width: 100%;
+      height: 100%;
+      min-height: 86px;
+      display: block;
+      transition: transform .55s cubic-bezier(.2,.8,.2,1);
+    }
+    .structure-link-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: .42rem;
+      color: var(--brand-2);
+      font-family: Geist, Inter, sans-serif;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .structure-link-title {
+      display: block;
+      margin-top: .26rem;
+      font-family: Geist, Inter, sans-serif;
+      font-size: 1rem;
+      font-weight: 750;
+      letter-spacing: -.02em;
+      color: var(--text);
+    }
+    .structure-link-copy {
+      display: block;
+      margin-top: .18rem;
+      color: var(--muted);
+      font-size: .84rem;
+      line-height: 1.55;
+    }
+    .structure-link-arrow {
+      display: inline-grid;
+      place-items: center;
+      width: 2.3rem;
+      height: 2.3rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.045);
+      color: var(--brand-2);
+      transition: transform .22s ease, color .22s ease, background .22s ease, border-color .22s ease;
+    }
+    .structure-link-arrow i {
+      width: 1rem;
+      height: 1rem;
+    }
+    html[data-theme="light"] .structure-link-media {
+      background: linear-gradient(135deg, rgba(17,184,170,.16), rgba(255,255,255,.88));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.72);
+    }
+    html[data-theme="light"] .structure-link-arrow {
+      background: rgba(255,255,255,.74);
+    }
+    @media (max-width: 540px) {
+      .structure-link-card {
+        grid-template-columns: 1fr;
+        gap: .85rem;
+      }
+      .structure-link-media {
+        width: 100%;
+        min-height: 154px;
+      }
+      .structure-link-media svg {
+        min-height: 154px;
+      }
+      .structure-link-arrow {
+        position: absolute;
+        right: .9rem;
+        top: .9rem;
+      }
+    }
+
+    .team-img { aspect-ratio: 4 / 5; width: 100%; height: auto; object-fit: cover; object-position: center top; }
+    .input {
+      width: 100%;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.055);
+      padding: .9rem 1rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    html[data-theme="light"] .input { background: rgba(255,255,255,.88); }
+    .input::placeholder { color: var(--soft); }
+    .input:focus { border-color: var(--brand-2); box-shadow: 0 0 0 5px var(--ring); }
+
+    .form-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .form-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(94,234,212,.12), transparent 16rem),
+        radial-gradient(circle at 94% 18%, rgba(24,164,173,.10), transparent 14rem);
+      opacity: .9;
+    }
+    .form-card > * { position: relative; z-index: 1; }
+    .form-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.35rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      border-radius: 999px;
+      padding: .42rem .72rem;
+      border: 1px solid rgba(94,234,212,.22);
+      background: rgba(94,234,212,.08);
+      color: var(--brand-2);
+      font-family: Geist, Inter, sans-serif;
+      font-size: .72rem;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+    .form-field {
+      display: grid;
+      gap: .46rem;
+      color: var(--text);
+      font-size: .88rem;
+      font-weight: 650;
+    }
+    .form-field span:first-child {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+    }
+    .field-hint {
+      color: var(--soft);
+      font-size: .74rem;
+      font-weight: 500;
+    }
+    .field-error {
+      min-height: 1.05rem;
+      color: #ff8a8a;
+      font-size: .76rem;
+      font-weight: 600;
+      line-height: 1.25;
+      opacity: 0;
+      transform: translateY(-2px);
+      transition: opacity .18s ease, transform .18s ease;
+    }
+    .form-field.invalid .field-error {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .form-field.invalid .input {
+      border-color: rgba(255, 99, 99, .72);
+      box-shadow: 0 0 0 5px rgba(255, 99, 99, .12);
+    }
+    .form-field.valid .input {
+      border-color: rgba(94,234,212,.48);
+    }
+    .form-alert {
+      display: none;
+      align-items: flex-start;
+      gap: .75rem;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(94,234,212,.32);
+      background: rgba(94,234,212,.10);
+      padding: .9rem 1rem;
+      color: var(--text);
+      box-shadow: 0 14px 38px rgba(24,164,173,.10);
+    }
+    .form-alert.show { display: flex; }
+    .form-alert i { color: var(--brand-2); flex: 0 0 auto; margin-top: .1rem; }
+    .form-alert strong {
+      display: block;
+      font-family: Geist, Inter, sans-serif;
+      font-size: .95rem;
+    }
+    .form-alert span {
+      display: block;
+      margin-top: .12rem;
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.45;
+    }
+    @media (max-width: 520px) {
+      .form-header { flex-direction: column; }
+      .form-badge { white-space: normal; }
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: flex;
+      justify-content: flex-end;
+      align-items: stretch;
+      width: 100vw;
+      height: 100dvh;
+      max-width: 100vw;
+      overflow: hidden;
+      background: rgba(0,0,0,.50);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .28s ease, visibility .28s ease;
+    }
+    .mobile-menu::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(24,164,173,.16), transparent 17rem),
+        linear-gradient(90deg, rgba(24,164,173,.10), rgba(0,0,0,.48));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .mobile-panel {
+      position: relative;
+      z-index: 1;
+      width: min(92vw, 380px);
+      height: 100dvh;
+      max-height: 100dvh;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: clamp(.72rem, 2.1vh, 1.25rem);
+      padding: clamp(.9rem, 2.4vh, 1.35rem);
+      background:
+        radial-gradient(circle at 55% 28%, rgba(24,164,173,.075), transparent 12rem),
+        rgba(7,8,11,.97);
+      border-left: 1px solid rgba(255,255,255,.09);
+      box-shadow: -32px 0 90px rgba(0,0,0,.45);
+      transform: translateX(105%);
+      transition: transform .36s cubic-bezier(.22,1,.36,1);
+      overflow: hidden;
+      overscroll-behavior: contain;
+    }
+    .mobile-menu.open .mobile-panel { transform: translateX(0); }
+    html[data-theme="light"] .mobile-menu { background: rgba(3,32,37,.28); }
+    html[data-theme="light"] .mobile-menu::before { background: linear-gradient(90deg, rgba(17,184,170,.12), rgba(247,251,251,.45)); }
+    html[data-theme="light"] .mobile-panel {
+      background:
+        radial-gradient(circle at 55% 28%, rgba(17,184,170,.10), transparent 12rem),
+        rgba(247,251,251,.98);
+      border-left-color: rgba(5,76,84,.13);
+      box-shadow: -28px 0 80px rgba(5,76,84,.15);
+    }
+    .mobile-panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 2.45rem;
+      min-width: 0;
+    }
+    .mobile-brand { display: flex; align-items: center; gap: .8rem; min-width: 0; }
+    .mobile-brand-logo {
+      width: 2.35rem;
+      height: 2.35rem;
+      border-radius: .78rem;
+      object-fit: contain;
+      background: #fff;
+      padding: .18rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,.20);
+      flex: 0 0 auto;
+    }
+    .mobile-brand-title {
+      min-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-family: Geist, Inter, sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--text);
+    }
+    .mobile-close {
+      display: inline-grid;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: var(--text);
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+      flex: 0 0 auto;
+    }
+    .mobile-close:hover { background: var(--surface); border-color: var(--border); transform: rotate(90deg); }
+    .mobile-nav {
+      display: grid;
+      align-content: center;
+      gap: clamp(.36rem, 1.55vh, .62rem);
+      margin: 0;
+      min-height: 0;
+      overflow: hidden;
+    }
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      min-height: clamp(2.45rem, 6.7vh, 3.15rem);
+      padding: clamp(.52rem, 1.65vh, .78rem) .9rem;
+      border-radius: 10px;
+      color: var(--muted);
+      font-family: Geist, Inter, sans-serif;
+      font-size: clamp(.88rem, 3.6vw, .98rem);
+      font-weight: 750;
+      letter-spacing: -.01em;
+      border: 1px solid transparent;
+      transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .mobile-nav-link i { width: 1.05rem; height: 1.05rem; color: var(--soft); transition: color .2s ease, transform .2s ease; flex: 0 0 auto; }
+    .mobile-nav-link:hover {
+      color: var(--text);
+      background: rgba(255,255,255,.055);
+      border-color: var(--border);
+      transform: translateX(4px);
+    }
+    .mobile-nav-link:hover i { color: var(--brand-2); transform: scale(1.06); }
+    html[data-theme="light"] .mobile-nav-link:hover { background: rgba(17,184,170,.08); }
+    .mobile-menu-footer {
+      display: grid;
+      gap: clamp(.55rem, 1.7vh, .9rem);
+      margin: 0;
+      padding: 0;
+      min-width: 0;
+    }
+    .mobile-theme-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      min-height: clamp(2.55rem, 6.8vh, 3.1rem);
+      padding: clamp(.56rem, 1.7vh, .82rem) .9rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.045);
+      color: var(--text);
+      font-family: Geist, Inter, sans-serif;
+      font-size: .9rem;
+      font-weight: 750;
+      transition: background .2s ease, border-color .2s ease;
+    }
+    .mobile-theme-row:hover { background: var(--surface); border-color: rgba(94,234,212,.22); }
+    html[data-theme="light"] .mobile-theme-row { background: rgba(255,255,255,.62); }
+    .mobile-theme-row .theme-switch { width: 3.8rem; height: 1.95rem; flex: 0 0 auto; pointer-events: none; }
+    .mobile-theme-row .theme-switch-thumb { width: 1.43rem; height: 1.43rem; }
+    html[data-theme="light"] .mobile-theme-row .theme-switch-thumb { left: calc(100% - 1.68rem); }
+    .mobile-cta {
+      width: 100%;
+      min-height: clamp(2.75rem, 7.1vh, 3.3rem);
+      justify-content: center;
+      border-radius: 10px;
+      font-size: clamp(.86rem, 3.6vw, .95rem);
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1023px) {
+      html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+    }
+
+    @media (max-width: 767px) and (orientation: portrait) {
+      .mobile-menu {
+        justify-content: flex-end;
+        align-items: stretch;
+      }
+
+      .mobile-panel {
+        width: min(100vw, 390px);
+        max-width: 100vw;
+        border-left: 1px solid rgba(255,255,255,.08);
+      }
+    }
+
+    @media (max-width: 430px) and (orientation: portrait) {
+      .mobile-panel {
+        width: 100vw;
+        padding: .95rem 1rem;
+      }
+
+      .mobile-brand-logo {
+        width: 2rem;
+        height: 2rem;
+        border-radius: .68rem;
+      }
+
+      .mobile-close {
+        width: 2.1rem;
+        height: 2.1rem;
+      }
+
+      .mobile-nav-link {
+        gap: .82rem;
+        padding-inline: .82rem;
+      }
+    }
+
+    @media (max-height: 560px) {
+      .mobile-panel {
+        gap: .45rem;
+        padding: .75rem .85rem;
+      }
+
+      .mobile-panel-top {
+        min-height: 2rem;
+      }
+
+      .mobile-brand-logo {
+        width: 1.95rem;
+        height: 1.95rem;
+        border-radius: .62rem;
+      }
+
+      .mobile-brand-title {
+        font-size: .92rem;
+      }
+
+      .mobile-close {
+        width: 1.95rem;
+        height: 1.95rem;
+      }
+
+      .mobile-nav {
+        gap: .18rem;
+      }
+
+      .mobile-nav-link {
+        min-height: 2.02rem;
+        padding: .28rem .72rem;
+        font-size: .82rem;
+      }
+
+      .mobile-nav-link i {
+        width: .9rem;
+        height: .9rem;
+      }
+
+      .mobile-menu-footer {
+        gap: .36rem;
+      }
+
+      .mobile-theme-row {
+        min-height: 2.08rem;
+        padding: .3rem .72rem;
+        font-size: .78rem;
+      }
+
+      .mobile-theme-row .theme-switch {
+        width: 3.1rem;
+        height: 1.58rem;
+      }
+
+      .mobile-theme-row .theme-switch-thumb {
+        width: 1.1rem;
+        height: 1.1rem;
+        left: .22rem;
+      }
+
+      html[data-theme="light"] .mobile-theme-row .theme-switch-thumb {
+        left: calc(100% - 1.32rem);
+      }
+
+      .mobile-theme-row .theme-switch-icon svg {
+        width: .72rem;
+        height: .72rem;
+      }
+
+      .mobile-theme-row .theme-switch-sun { left: .34rem; }
+      .mobile-theme-row .theme-switch-moon { right: .34rem; }
+
+      .mobile-cta {
+        min-height: 2.2rem;
+        padding-block: .36rem;
+        font-size: .8rem;
+      }
+    }
+
+    @media (max-height: 460px) {
+      .mobile-panel {
+        gap: .32rem;
+        padding: .62rem .72rem;
+      }
+
+      .mobile-nav {
+        align-content: start;
+        gap: .08rem;
+      }
+
+      .mobile-nav-link {
+        min-height: 1.75rem;
+        padding: .2rem .64rem;
+        font-size: .76rem;
+      }
+
+      .mobile-nav-link i {
+        width: .82rem;
+        height: .82rem;
+      }
+
+      .mobile-theme-row {
+        min-height: 1.88rem;
+        padding: .22rem .64rem;
+        font-size: .74rem;
+      }
+
+      .mobile-theme-row .theme-switch {
+        width: 2.85rem;
+        height: 1.44rem;
+      }
+
+      .mobile-theme-row .theme-switch-thumb {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      html[data-theme="light"] .mobile-theme-row .theme-switch-thumb {
+        left: calc(100% - 1.22rem);
+      }
+
+      .mobile-cta {
+        min-height: 1.95rem;
+        padding-block: .28rem;
+        font-size: .76rem;
+      }
+    }
+
+    .map-frame { width: 100%; min-height: 420px; border: 0; filter: saturate(.90) contrast(1.02); }
+    .floating-cta {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 80;
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      border-radius: 999px;
+      padding: .78rem .95rem;
+      background: linear-gradient(135deg, #25d366, var(--brand-2));
+      color: #031416;
+      font-family: Geist, Inter, sans-serif;
+      font-weight: 800;
+      box-shadow: 0 18px 48px rgba(37,211,102,.22);
+      transition: transform .2s ease;
+    }
+    .floating-cta:hover { transform: translateY(-2px); }
+    .social-icon { display:inline-flex; width:1.15rem; height:1.15rem; }
+    .social-icon svg { width:100%; height:100%; display:block; fill: currentColor; }
+    .footer-social { display: flex; align-items: center; gap: .75rem; margin-top: 1rem; }
+    .footer-social-link {
+      display: inline-grid;
+      place-items: center;
+      width: 2.7rem;
+      height: 2.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      transition: transform .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+    .footer-social-link:hover {
+      transform: translateY(-3px);
+      background: var(--surface-strong);
+      border-color: rgba(94,234,212,.26);
+      box-shadow: 0 14px 38px rgba(24,164,173,.13);
+    }
+    .footer-social-link .social-icon { width: 1.28rem; height: 1.28rem; }
+    .partner-logo-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 164px;
+      padding: 1.4rem;
+      text-align: center;
+    }
+    .partner-logo-wrap {
+      width: 100%;
+      height: auto;
+      border-radius: 1.1rem;
+      background: rgba(255,255,255,.96);
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.04);
+    }
+    .partner-logo-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .back-to-top-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2.75rem 0 1.25rem;
+    }
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      border-radius: 999px;
+      padding: .9rem 1.25rem;
+      border: 1px solid var(--border);
+      background: var(--surface-strong);
+      color: var(--text);
+      font-family: Geist, Inter, sans-serif;
+      font-weight: 700;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 14px 40px rgba(0,0,0,.18);
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
+    }
+    .back-to-top:hover { background: var(--surface); border-color: rgba(94,234,212,.24); transform: translateY(-2px); }
+
+
+    .site-footer {
+      position: relative;
+      z-index: 20;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 14% 0%, rgba(94,234,212,.10), transparent 22rem),
+        radial-gradient(circle at 86% 18%, rgba(24,164,173,.10), transparent 24rem),
+        linear-gradient(to bottom, rgba(255,255,255,.025), transparent 52%);
+    }
+    html[data-theme="light"] .site-footer {
+      background:
+        radial-gradient(circle at 14% 0%, rgba(17,184,170,.12), transparent 22rem),
+        radial-gradient(circle at 86% 18%, rgba(15,143,152,.08), transparent 24rem),
+        linear-gradient(to bottom, rgba(255,255,255,.62), rgba(247,251,251,.22));
+    }
+    .footer-shell {
+      padding: clamp(3.6rem, 7vw, 5.4rem) 0 1.8rem;
+    }
+    .footer-main {
+      display: grid;
+      grid-template-columns: minmax(260px, 1.28fr) minmax(140px, .62fr) minmax(240px, .95fr) minmax(210px, .78fr);
+      gap: clamp(2.2rem, 5vw, 5.6rem);
+      align-items: start;
+    }
+    .footer-brand-block {
+      max-width: 440px;
+    }
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+    .footer-logo img {
+      width: 160px;
+      height: 120px;
+      object-fit: contain;
+    }
+    .footer-description {
+      max-width: 33rem;
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.78;
+    }
+    .footer-heading {
+      position: relative;
+      margin-bottom: 1.25rem;
+      padding-bottom: .78rem;
+      font-family: Geist, Inter, sans-serif;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .footer-heading::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 2.2rem;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--brand-2), transparent);
+    }
+    .footer-list {
+      display: grid;
+      gap: .72rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.65;
+    }
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .48rem;
+      color: var(--muted);
+      transition: color .2s ease, transform .2s ease;
+    }
+    .footer-link:hover {
+      color: var(--text);
+      transform: translateX(3px);
+    }
+    .footer-contact-item {
+      display: grid;
+      grid-template-columns: 1.85rem 1fr;
+      gap: .78rem;
+      align-items: start;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.65;
+    }
+    .footer-contact-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 1.85rem;
+      height: 1.85rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--brand-2);
+      background: rgba(255,255,255,.04);
+    }
+    .footer-contact-icon i {
+      width: .95rem;
+      height: .95rem;
+    }
+    .footer-social-copy {
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.65;
+    }
+    .footer-divider {
+      margin: clamp(2.5rem, 5vw, 4.2rem) 0 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      padding-top: 1.35rem;
+      color: var(--soft);
+      font-size: .78rem;
+    }
+    .footer-bottom p {
+      margin: 0;
+    }
+    .footer-back-row {
+      display: flex;
+      justify-content: center;
+      padding-top: 2.35rem;
+    }
+    @media (max-width: 1023px) {
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.6rem 3rem;
+      }
+      .footer-brand-block {
+        max-width: none;
+      }
+    }
+    @media (max-width: 640px) {
+      .footer-shell {
+        padding-top: 3.1rem;
+      }
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 2.35rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-logo img {
+        width: 145px;
+        height: 105px;
+      }
+    }
+
+
+
+    /* Ajustes de contraste do modo claro: textos escuros e elementos compatíveis */
+    html[data-theme="light"] body,
+    html[data-theme="light"] main,
+    html[data-theme="light"] footer {
+      color: var(--text);
+    }
+
+    html[data-theme="light"] header {
+      background-image: linear-gradient(to bottom, rgba(247,251,251,.94), rgba(247,251,251,.72)) !important;
+      border-bottom-color: var(--border);
+    }
+
+    html[data-theme="light"] .nav-link,
+    html[data-theme="light"] .text-muted,
+    html[data-theme="light"] .footer-description,
+    html[data-theme="light"] .footer-list,
+    html[data-theme="light"] .footer-link,
+    html[data-theme="light"] .footer-contact-item,
+    html[data-theme="light"] .footer-social-copy {
+      color: var(--muted) !important;
+    }
+
+    html[data-theme="light"] .text-soft,
+    html[data-theme="light"] .footer-bottom {
+      color: var(--soft) !important;
+    }
+
+    html[data-theme="light"] .hero-title,
+    html[data-theme="light"] .section-title,
+    html[data-theme="light"] .title-sm,
+    html[data-theme="light"] .footer-heading,
+    html[data-theme="light"] .mobile-brand-title,
+    html[data-theme="light"] .form-field {
+      color: var(--text);
+    }
+
+    html[data-theme="light"] .nav-link:hover,
+    html[data-theme="light"] .footer-link:hover,
+    html[data-theme="light"] .hover\:text-\[var\(--text\)\]:hover {
+      color: var(--text) !important;
+    }
+
+    html[data-theme="light"] .border-white\/10,
+    html[data-theme="light"] .border-t.border-white\/10,
+    html[data-theme="light"] .border-b.border-white\/10 {
+      border-color: var(--border) !important;
+    }
+
+    html[data-theme="light"] .bg-white\/10 {
+      background-color: rgba(4,25,29,.06) !important;
+    }
+
+    html[data-theme="light"] .bg-black\/40 {
+      background-color: rgba(255,255,255,.78) !important;
+      border-color: rgba(5,76,84,.16) !important;
+    }
+
+    html[data-theme="light"] .text-white\/90 {
+      color: rgba(4,25,29,.94) !important;
+    }
+    @media (max-width: 767px) {
+      .section-pad { padding: 72px 0; }
+      .hero-title { font-size: clamp(3.65rem, 16vw, 5.1rem); }
+      .floating-cta span.cta-text { display: none; }
+      .map-frame { min-height: 360px; }
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <div class="background-blur" aria-hidden="true"></div>
+  <div class="page-overlay" aria-hidden="true"></div>
+
+  <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-black" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="sticky top-0 z-[100] border-b border-white/10 backdrop-blur-xl" style="background-image: linear-gradient(to bottom, rgba(10,10,10,.72), rgba(10,10,10,.34));">
+    <div class="container-x">
+      <div class="flex items-center justify-between gap-5">
+        <a href="#inicio" class="inline-flex items-center gap-3" aria-label="V4 Saúde">
+                      <img src="assets/logo.png" alt="V4 Saúde" class="w-[160px] h-[120px] object-contain" />
+
+
+          
+            
+          
+        </a>
+
+        <nav class="hidden items-center gap-8 lg:flex" aria-label="Navegação principal">
+          <a class="nav-link" href="#sobre">Sobre</a>
+          <a class="nav-link" href="#solucoes">Soluções</a>
+          <a class="nav-link" href="#estrutura">Estrutura</a>
+          <a class="nav-link" href="#equipe">Equipe</a>
+          <a class="nav-link" href="#contato">Contato</a>
+        </nav>
+
+        <div class="hidden items-center gap-3 lg:flex">
+          <button id="themeToggle" class="theme-switch" type="button" aria-label="Alternar entre modo claro e escuro" aria-pressed="false">
+            <span class="theme-switch-track" aria-hidden="true">
+              <span class="theme-switch-icon theme-switch-sun"><i data-lucide="sun"></i></span>
+              <span class="theme-switch-icon theme-switch-moon"><i data-lucide="moon"></i></span>
+              <span class="theme-switch-thumb"></span>
+            </span>
+          </button>
+          <a class="btn btn-brand !px-5 !py-2.5" href="#contato"  rel="noopener">
+            Fale conosco
+            <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+            <span class="shine"></span>
+          </a>
+        </div>
+
+        <button id="mobileMenuButton" class="btn btn-glass lg:hidden !px-4 !py-2" type="button" aria-controls="mobileMenu" aria-expanded="false">
+          <i data-lucide="menu" class="menu-icon h-5 w-5"></i>
+          <i data-lucide="X" class="close-icon hidden h-5 w-5"></i>
+          
+          <span class="shine"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu lg:hidden" aria-hidden="true">
+      <aside class="mobile-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação mobile">
+        <div class="mobile-panel-top">
+          <a href="#inicio" class="mobile-brand" aria-label="V4 Saúde">
+            <img src="assets/logo.png" alt="V4 Saúde" class="mobile-brand-logo" />
+            <span class="mobile-brand-title">V4 Saúde</span>
+          </a>
+          <button id="mobileCloseButton" class="mobile-close" type="button" aria-label="Fechar menu">
+            <i data-lucide="x" class="h-5 w-5"></i>
+          </button>
+        </div>
+
+        <nav class="mobile-nav" aria-label="Navegação mobile">
+          <a class="mobile-nav-link" href="#inicio"><i data-lucide="home"></i><span>Início</span></a>
+          <a class="mobile-nav-link" href="#sobre"><i data-lucide="shield-check"></i><span>Diferenciais</span></a>
+          <a class="mobile-nav-link" href="#solucoes"><i data-lucide="boxes"></i><span>Soluções</span></a>
+          <a class="mobile-nav-link" href="#estrutura"><i data-lucide="building-2"></i><span>Estrutura</span></a>
+          <a class="mobile-nav-link" href="#equipe"><i data-lucide="users"></i><span>Equipe</span></a>
+          <a class="mobile-nav-link" href="#contato"><i data-lucide="mail"></i><span>Contato</span></a>
+        </nav>
+
+        <div class="mobile-menu-footer">
+          <button id="themeToggleMobile" class="mobile-theme-row" type="button" aria-label="Alternar entre modo claro e escuro" aria-pressed="false">
+            <span id="themeLabelMobile">Modo escuro</span>
+            <span class="theme-switch" aria-hidden="true">
+              <span class="theme-switch-track">
+                <span class="theme-switch-icon theme-switch-sun"><i data-lucide="sun"></i></span>
+                <span class="theme-switch-icon theme-switch-moon"><i data-lucide="moon"></i></span>
+                <span class="theme-switch-thumb"></span>
+              </span>
+            </span>
+          </button>
+          <a class="btn btn-brand mobile-cta" href="#contato" rel="noopener">
+            <i data-lucide="send" class="h-5 w-5"></i>
+            Solicitar atendimento
+            <span class="shine"></span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section id="inicio" class="relative z-20 flex min-h-[90vh] items-end">
+      <div class="container-x py-20 lg:py-24">
+        <div class="grid items-center gap-12 opacity-0 lg:grid-cols-[1.05fr_.95fr] lg:gap-16" style="animation: fadeSlideIn 1s ease-out .2s forwards;">
+          <div class="order-1 opacity-0" style="animation: slideInBlur 1.15s ease-out .35s forwards;">
+            <span class="eyebrow"><i data-lucide="sparkles" class="h-3.5 w-3.5"></i> V4 Saúde</span>
+            <h1 class="hero-title mt-6">Produtos de saúde. <span class="brand-gradient">Performance hospitalar.</span></h1>
+          </div>
+
+          <div class="order-2">
+            <div class="mb-6 flex flex-wrap items-center gap-3 text-xs text-muted opacity-0" style="animation: fadeSlideIn .8s ease-out .58s forwards;">
+              <div class="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/10 px-3 py-1 backdrop-blur">
+                <i data-lucide="map-pin" class="h-8 w-8"></i>
+                <span class="font-geist font-medium">Santo Antônio da Platina, PR</span>
+              </div>
+              <div class="hidden h-4 w-px bg-white/20 md:block"></div>
+              <span class="hidden font-geist md:inline">Atendimento para instituições públicas e privadas</span>
+            </div>
+            <p class="mb-8 text-xl leading-relaxed text-muted opacity-0 sm:text-xl" style="animation: fadeSlideIn .8s ease-out .74s forwards;">A V4 Saúde é uma distribuidora de produtos de Saúde, Estética e Médico-hospitalares com atuação estratégica, estoque próprio, suporte técnico e agilidade documental para hospitais, clínicas e laboratórios em todo o Brasil.</p>
+            <div class="mb-6 border-t border-white/10 pt-6 opacity-0" style="animation: fadeInScale .8s ease-out .95s forwards;">
+              <div class="flex flex-wrap items-center gap-4">
+                <a class="btn btn-brand" href="#contato"rel="noopener"><i data-lucide="message-circle" class="h-5 w-5"></i> Falar com a V4 Saúde <span class="shine"></span></a>
+                <div class="hidden h-6 w-px bg-white/20 sm:block"></div>
+                <a class="btn btn-glass" href="#solucoes"><i data-lucide="play" class="h-6 w-6"></i> Ver diferenciais <span class="shine"></span></a>
+              </div>
+            </div>
+            <div class="border-t border-white/10 pt-4 opacity-0" style="animation: fadeSlideIn .7s ease-out 1.18s forwards;">
+              <p class="font-geist text-sm text-soft">Produtos certificados, projetos integrados à assistência e atendimento técnico personalizado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="relative z-20 border-t border-white/10">
+      <div class="container-x py-16">
+        <div class="mx-auto max-w-3xl text-center">
+          <span class="eyebrow animate-on-scroll fade-slide"><i data-lucide="building-2" class="h-3.5 w-3.5"></i> Sobre a empresa</span>
+          <h2 class="section-title animate-on-scroll mt-4" style="animation: fadeSlideIn 1s ease-out .12s both;">União familiar, energia jovem e compromisso com a saúde.</h2>
+          <p class="animate-on-scroll mt-4 text-lg leading-relaxed text-muted" style="animation: fadeSlideIn 1s ease-out .26s both;">A V4 Saúde combina ciência, gestão, logística e proximidade no atendimento para oferecer produtos e serviços de alta performance a instituições de saúde.</p>
+        </div>
+
+        <div class="mt-10 grid gap-5 lg:grid-cols-3">
+          <article class="card animate-on-scroll rounded-2xl p-6" style="animation: fadeSlideIn 1s ease-out .18s both;">
+            <span class="icon-box"><i data-lucide="target" class="h-5 w-5"></i></span>
+            <h3 class="mt-4 font-geist text-xl font-medium tracking-tight">Missão</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">Oferecer produtos e serviços que proporcionem segurança, agilidade e confiança para instituições públicas e privadas.</p>
+          </article>
+          <article class="card animate-on-scroll rounded-2xl p-6" style="animation: fadeSlideIn 1s ease-out .30s both;">
+            <span class="icon-box"><i data-lucide="heart-handshake" class="h-5 w-5"></i></span>
+            <h3 class="mt-4 font-geist text-xl font-medium tracking-tight">Valores</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">Ética, inovação responsável, qualidade operacional e compromisso com impacto real na saúde da população.</p>
+          </article>
+          <article class="card animate-on-scroll rounded-2xl p-6" style="animation: fadeSlideIn 1s ease-out .42s both;">
+            <span class="icon-box"><i data-lucide="truck" class="h-5 w-5"></i></span>
+            <h3 class="mt-4 font-geist text-xl font-medium tracking-tight">Atuação</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">Sede no Norte Pioneiro do Paraná e atendimento a hospitais, clínicas e laboratórios em todo o Brasil.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="solucoes" class="relative z-20 border-t border-white/10">
+      <div class="container-x py-16">
+        <div class="mx-auto max-w-3xl text-center">
+          <span class="eyebrow animate-on-scroll fade-slide"><i data-lucide="shield-check" class="h-3.5 w-3.5"></i> Diferenciais</span>
+          <h2 class="section-title animate-on-scroll mt-4" style="animation: fadeSlideIn 1s ease-out .12s both;">Soluções completas para instituições de saúde.</h2>
+          <p class="animate-on-scroll mt-4 leading-relaxed text-muted" style="animation: fadeSlideIn 1s ease-out .26s both;">Do produto à documentação, a V4 Saúde atua para tornar a aquisição mais segura, ágil e tecnicamente orientada.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="card animate-on-scroll rounded-xl p-5" style="animation: fadeSlideIn 1s ease-out .20s both;">
+            <span class="icon-box"><i data-lucide="badge-check" class="h-5 w-5"></i></span>
+            <p class="mt-4 font-geist font-medium tracking-tight">Produtos certificados</p>
+            <p class="mt-2 text-sm leading-6 text-muted">Itens homologados e selecionados com foco em segurança, desempenho e qualidade.</p>
+          </article>
+          <article class="card animate-on-scroll rounded-xl p-5" style="animation: fadeSlideIn 1s ease-out .32s both;">
+            <span class="icon-box"><i data-lucide="file-check-2" class="h-5 w-5"></i></span>
+            <p class="mt-4 font-geist font-medium tracking-tight">Agilidade documental</p>
+            <p class="mt-2 text-sm leading-6 text-muted">Apoio nos processos de compra, documentação, licitações e fornecimentos institucionais.</p>
+          </article>
+          <article class="card animate-on-scroll rounded-xl p-5" style="animation: fadeSlideIn 1s ease-out .44s both;">
+            <span class="icon-box"><i data-lucide="workflow" class="h-5 w-5"></i></span>
+            <p class="mt-4 font-geist font-medium tracking-tight">Projetos integrados</p>
+            <p class="mt-2 text-sm leading-6 text-muted">Soluções conectadas à assistência, à gestão e às necessidades reais do serviço de saúde.</p>
+          </article>
+          <article class="card animate-on-scroll rounded-xl p-5" style="animation: fadeSlideIn 1s ease-out .56s both;">
+            <span class="icon-box"><i data-lucide="headphones" class="h-5 w-5"></i></span>
+            <p class="mt-4 font-geist font-medium tracking-tight">Atendimento técnico</p>
+            <p class="mt-2 text-sm leading-6 text-muted">Orientação personalizada para apoiar decisões com mais clareza e segurança operacional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="estrutura" class="relative z-20 border-t border-white/10">
+      <div class="container-x py-16">
+        <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div class="animate-on-scroll" style="animation: fadeSlideIn 1s ease-out .12s both;">
+            <p class="font-geist text-xs uppercase tracking-[.22em] text-soft">estrutura própria</p>
+            <h2 class="title-sm mt-3">Estoque, treinamento e suporte para entregar com consistência.</h2>
+            <p class="mt-4 leading-relaxed text-muted">Nossa estrutura inclui centro de treinamento moderno, auditório para capacitações e estoque estratégico, garantindo entregas rápidas e soluções completas para diferentes demandas do setor.</p>
+            <div class="structure-link-grid mt-8">
+              <a class="card structure-link-card" href="#contato" aria-label="Solicitar informações sobre estoque estratégico da V4 Saúde">
+                <span class="structure-link-media" aria-hidden="true">
+                  <svg viewBox="0 0 320 220" role="img" focusable="false">
+                    <defs>
+                      <linearGradient id="stockBg" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#06292d"/>
+                        <stop offset="1" stop-color="#18a4ad"/>
+                      </linearGradient>
+                      <linearGradient id="stockBox" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#5eead4"/>
+                        <stop offset="1" stop-color="#0f8f98"/>
+                      </linearGradient>
+                    </defs>
+                    <rect width="320" height="220" rx="24" fill="url(#stockBg)"/>
+                    <circle cx="258" cy="42" r="56" fill="#5eead4" opacity=".16"/>
+                    <circle cx="68" cy="178" r="72" fill="#ffffff" opacity=".07"/>
+                    <path d="M62 76h196v106H62z" fill="#031416" opacity=".36"/>
+                    <path d="M78 62h164v34H78z" fill="#ffffff" opacity=".14"/>
+                    <path d="M92 94h58v50H92z" fill="url(#stockBox)" opacity=".94"/>
+                    <path d="M162 94h58v50h-58z" fill="#e8fffb" opacity=".88"/>
+                    <path d="M92 154h58v28H92z" fill="#e8fffb" opacity=".76"/>
+                    <path d="M162 154h58v28h-58z" fill="url(#stockBox)" opacity=".90"/>
+                    <path d="M238 94h28v88h-28z" fill="#5eead4" opacity=".44"/>
+                    <path d="M78 62h164v8H78z" fill="#5eead4" opacity=".62"/>
+                    <path d="M107 116h28M177 116h28M106 168h29M177 168h28" stroke="#031416" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+                    <path d="M48 184h224" stroke="#ffffff" stroke-width="2" opacity=".22"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="structure-link-kicker"><i data-lucide="warehouse" class="h-3.5 w-3.5"></i> Disponibilidade</span>
+                  <span class="structure-link-title">Estoque estratégico</span>
+                  <span class="structure-link-copy">Mais previsibilidade para atendimento institucional e demandas com maior urgência.</span>
+                </span>
+                <span class="structure-link-arrow" aria-hidden="true"><i data-lucide="arrow-up-right"></i></span>
+              </a>
+
+              <a class="card structure-link-card" href="#contato" aria-label="Solicitar informações sobre centro de treinamento da V4 Saúde">
+                <span class="structure-link-media" aria-hidden="true">
+                  <svg viewBox="0 0 320 220" role="img" focusable="false">
+                    <defs>
+                      <linearGradient id="trainingBg" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#031416"/>
+                        <stop offset="1" stop-color="#0f8f98"/>
+                      </linearGradient>
+                      <linearGradient id="trainingScreen" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#e8fffb"/>
+                        <stop offset="1" stop-color="#5eead4"/>
+                      </linearGradient>
+                    </defs>
+                    <rect width="320" height="220" rx="24" fill="url(#trainingBg)"/>
+                    <path d="M52 58h216v90H52z" fill="#ffffff" opacity=".13"/>
+                    <path d="M70 74h180v58H70z" fill="url(#trainingScreen)" opacity=".92"/>
+                    <path d="M92 96h62M92 113h42" stroke="#031416" stroke-width="6" stroke-linecap="round" opacity=".56"/>
+                    <path d="M188 92l32 20-32 20z" fill="#031416" opacity=".62"/>
+                    <path d="M80 174c8-22 26-34 48-34s40 12 48 34M174 174c7-20 23-31 43-31s35 11 43 31" stroke="#5eead4" stroke-width="10" stroke-linecap="round" opacity=".88"/>
+                    <circle cx="128" cy="126" r="18" fill="#e8fffb" opacity=".86"/>
+                    <circle cx="217" cy="129" r="16" fill="#e8fffb" opacity=".78"/>
+                    <path d="M64 180h194" stroke="#ffffff" stroke-width="2" opacity=".18"/>
+                    <circle cx="268" cy="50" r="46" fill="#5eead4" opacity=".14"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="structure-link-kicker"><i data-lucide="graduation-cap" class="h-3.5 w-3.5"></i> Capacitação</span>
+                  <span class="structure-link-title">Centro de treinamento</span>
+                  <span class="structure-link-copy">Capacitações, educação científica e suporte técnico para equipes e parceiros.</span>
+                </span>
+                <span class="structure-link-arrow" aria-hidden="true"><i data-lucide="arrow-up-right"></i></span>
+              </a>
+
+              <a class="card structure-link-card" href="#parcerias" aria-label="Conhecer parcerias estratégicas da V4 Saúde">
+                <span class="structure-link-media" aria-hidden="true">
+                  <svg viewBox="0 0 320 220" role="img" focusable="false">
+                    <defs>
+                      <linearGradient id="partnerBg" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#06292d"/>
+                        <stop offset="1" stop-color="#031416"/>
+                      </linearGradient>
+                      <linearGradient id="partnerNode" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#5eead4"/>
+                        <stop offset="1" stop-color="#18a4ad"/>
+                      </linearGradient>
+                    </defs>
+                    <rect width="320" height="220" rx="24" fill="url(#partnerBg)"/>
+                    <circle cx="160" cy="110" r="72" fill="#5eead4" opacity=".10"/>
+                    <path d="M98 86l62 34 64-46M98 86l22 72 40-38 64 20M224 74v66" stroke="#e8fffb" stroke-width="4" stroke-linecap="round" opacity=".42"/>
+                    <circle cx="98" cy="86" r="25" fill="url(#partnerNode)"/>
+                    <circle cx="160" cy="120" r="30" fill="#e8fffb"/>
+                    <circle cx="224" cy="74" r="24" fill="url(#partnerNode)" opacity=".94"/>
+                    <circle cx="224" cy="140" r="22" fill="#5eead4" opacity=".76"/>
+                    <circle cx="120" cy="158" r="21" fill="#ffffff" opacity=".72"/>
+                    <path d="M150 111h20M160 101v20" stroke="#031416" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M88 190h150" stroke="#ffffff" stroke-width="2" opacity=".18"/>
+                    <circle cx="54" cy="42" r="46" fill="#18a4ad" opacity=".14"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="structure-link-kicker"><i data-lucide="network" class="h-3.5 w-3.5"></i> Ecossistema</span>
+                  <span class="structure-link-title">Parcerias estratégicas</span>
+                  <span class="structure-link-copy">Alianças para ampliar alcance, qualidade das entregas e soluções para a saúde.</span>
+                </span>
+                <span class="structure-link-arrow" aria-hidden="true"><i data-lucide="arrow-up-right"></i></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="relative animate-on-scroll" style="animation: fadeSlideIn 1s ease-out .24s both;">
+            <div class="overflow-hidden rounded-2xl border border-white/10">
+              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1600&auto=format&fit=crop" alt="Ambiente moderno de saúde e tecnologia" class="aspect-square h-full w-full object-cover">
+              <div class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10"></div>
+            </div>
+            <div class="absolute left-4 top-4 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 px-3 py-2 backdrop-blur">
+              <i data-lucide="activity" class="h-4 w-4 text-white/90"></i>
+              <span class="font-geist text-xs font-medium text-white/90">Alta performance operacional</span>
+            </div>
+            <div class="absolute bottom-4 left-4 flex flex-col gap-2">
+              <div class="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 px-3 py-2 backdrop-blur"><i data-lucide="timer-reset" class="h-4 w-4 text-white/90"></i><span class="font-geist text-xs font-medium text-white/90">Entregas ágeis</span></div>
+              <div class="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 px-3 py-2 backdrop-blur"><i data-lucide="shield-check" class="h-4 w-4 text-white/90"></i><span class="font-geist text-xs font-medium text-white/90">Produtos certificados</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="equipe" class="relative z-20 border-t border-white/10">
+      <div class="container-x pb-6 pt-16">
+        <div class="mb-10 flex items-end justify-between gap-6">
+          <div class="animate-on-scroll" style="animation: fadeSlideIn 1s ease-out .12s both;">
+            <span class="eyebrow"><i data-lucide="users" class="h-3.5 w-3.5"></i> Equipe</span>
+            <h2 class="mt-4 font-geist text-3xl font-semibold tracking-tight sm:text-4xl">Conheça quem está por trás da V4 Saúde</h2>
+            <p class="mt-2 max-w-2xl text-muted">Ciência, gestão, inovação e compromisso com o futuro da saúde.</p>
+          </div>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="card group animate-on-scroll overflow-hidden rounded-2xl" style="animation: fadeSlideIn 1s ease-out .18s both;">
+            <div class="relative overflow-hidden">
+              <img class="team-img transition duration-500 group-hover:scale-105" src="assets/Narciso.jpg" alt="Retrato profissional de Narciso J. Vieira" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent"></div>
+            </div>
+            <div class="p-5">
+              <p class="font-geist text-lg font-medium tracking-tight">Narciso J. Vieira, PhD</p>
+              <p class="mt-1 text-sm text-[var(--brand-2)]">Diretor Científico</p>
+              <p class="mt-3 text-sm leading-6 text-muted">Biomédico, Doutor em Imunologia, professor e pesquisador em inovação, pesquisa translacional e educação científica.</p>
+            </div>
+          </article>
+
+          <article class="card group animate-on-scroll overflow-hidden rounded-2xl" style="animation: fadeSlideIn 1s ease-out .30s both;">
+            <div class="relative overflow-hidden">
+              <img class="team-img transition duration-500 group-hover:scale-105" src="assets/Milene.jpg" alt="Retrato profissional de Milene Moraes Vieira" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent"></div>
+            </div>
+            <div class="p-5">
+              <p class="font-geist text-lg font-medium tracking-tight">Milene Moraes Vieira, MSc</p>
+              <p class="mt-1 text-sm text-[var(--brand-2)]">Diretora Técnica</p>
+              <p class="mt-3 text-sm leading-6 text-muted">Enfermeira, Mestre em Gestão em Saúde pela USP, Doutoranda em Saúde Coletiva e com 15 anos de experiência em gestão pública.</p>
+            </div>
+          </article>
+
+          <article class="card group animate-on-scroll overflow-hidden rounded-2xl" style="animation: fadeSlideIn 1s ease-out .42s both;">
+            <div class="relative overflow-hidden">
+              <img class="team-img transition duration-500 group-hover:scale-105" src="assets/Jessica.jpg" alt="Retrato profissional de Jéssica Vieira" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent"></div>
+            </div>
+            <div class="p-5">
+              <p class="font-geist text-lg font-medium tracking-tight">Jéssica Vieira</p>
+              <p class="mt-1 text-sm text-[var(--brand-2)]">Sócia Administradora</p>
+              <p class="mt-3 text-sm leading-6 text-muted">Administradora com mais de 10 anos de experiência no setor financeiro, crédito rural e gestão comercial bancária.</p>
+            </div>
+          </article>
+
+          <article class="card group animate-on-scroll overflow-hidden rounded-2xl" style="animation: fadeSlideIn 1s ease-out .54s both;">
+            <div class="relative overflow-hidden">
+              <img class="team-img transition duration-500 group-hover:scale-105" src="assets/Efraim.jpg" alt="Retrato profissional de Efraim Vieira" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent"></div>
+            </div>
+            <div class="p-5">
+              <p class="font-geist text-lg font-medium tracking-tight">Efraim Vieira</p>
+              <p class="mt-1 text-sm text-[var(--brand-2)]">Diretor de Parcerias</p>
+              <p class="mt-3 text-sm leading-6 text-muted">Administrador com trajetória nos setores empresarial e agropecuário, fortalecendo alianças e expandindo a marca.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="parcerias" class="relative z-20 border-t border-white/10">
+      <div class="container-x py-16">
+        <div class="mx-auto max-w-3xl text-center">
+          <span class="eyebrow animate-on-scroll fade-slide"><i data-lucide="network" class="h-3.5 w-3.5"></i> Parcerias</span>
+          <h2 class="section-title animate-on-scroll mt-4" style="animation: fadeSlideIn 1s ease-out .12s both;">Relacionamentos estratégicos no ecossistema da saúde.</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-muted animate-on-scroll" style="animation: fadeSlideIn 1s ease-out .18s both;">Conheça algumas marcas e instituições parceiras que fortalecem a atuação da V4 Saúde.</p>
+        </div>
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+<article class="card partner-logo-card animate-on-scroll rounded-2xl" style="animation: fadeSlideIn 1s ease-out .44s both;">
+            <div class="w-full">
+              <div class="partner-logo-wrap"><img src="assets/agon.jpg" alt="Logo da parceira Dágon Diagnóstico"></div>
+              <p class="mt-4 font-geist text-base font-semibold">Ágon Diagnóstico</p>
+              <p class="mt-1 text-xs text-muted">Santo Antônio da Platina</p>
+            </div>
+          </article>
+          
+          <article class="card partner-logo-card animate-on-scroll rounded-2xl" style="animation: fadeSlideIn 1s ease-out .20s both;">
+            <div class="w-full">
+              <div class="partner-logo-wrap"><img src="assets/all_laser.jpg" alt="Logo da parceira All Laser"></div>
+              <p class="mt-4 font-geist text-base font-semibold">All Laser</p>
+              <p class="mt-1 text-xs text-muted">Santo Antônio da Platina</p>
+            </div>
+          </article>
+
+<article class="card partner-logo-card animate-on-scroll rounded-2xl" style="animation: fadeSlideIn 1s ease-out .56s both;">
+            <div class="w-full">
+              <div class="partner-logo-wrap"><img src="assets/unique_peloepele.jpg" alt="Logo da parceira Unique Pelo & Pele"></div>
+              <p class="mt-4 font-geist text-base font-semibold">Unique Pelo &amp; Pele</p>
+              <p class="mt-1 text-xs text-muted">Jacarezinho</p>
+            </div>
+          </article>
+<article class="card partner-logo-card animate-on-scroll rounded-2xl" style="animation: fadeSlideIn 1s ease-out .32s both;">
+            <div class="w-full">
+              <div class="partner-logo-wrap"><img src="assets/lab_diniz.jpg" alt="Logo da parceira Laboratório Diniz"></div>
+              <p class="mt-4 font-geist text-base font-semibold">Laboratório Diniz</p>
+              <p class="mt-1 text-xs text-muted">Jacarezinho</p>
+            </div>
+          </article>
+
+          
+          
+          
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="relative z-20 border-t border-white/10">
+      <div class="container-x py-16">
+        <div class="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-start">
+          <div class="animate-on-scroll" style="animation: fadeSlideIn 1s ease-out .12s both;">
+            <span class="eyebrow"><i data-lucide="send" class="h-3.5 w-3.5"></i> Contato</span>
+            <h2 class="title-sm mt-5">Vamos evoluir juntos?</h2>
+            <p class="mt-5 text-lg leading-8 text-muted">Entre em contato e descubra como a V4 Saúde pode otimizar os processos da sua instituição.</p>
+
+            <div class="mt-8 grid gap-4">
+              <a class="card flex items-center gap-4 rounded-2xl p-4" href="tel:+5543999187792">
+                <span class="icon-box shrink-0"><i data-lucide="phone" class="h-5 w-5"></i></span>
+                <span><strong class="block font-geist">Telefone</strong><span class="text-sm text-muted">(43) 99918-7792</span></span>
+              </a>
+              <div class="card flex items-start gap-4 rounded-2xl p-4">
+                <span class="icon-box shrink-0"><i data-lucide="clock" class="h-5 w-5"></i></span>
+                <span><strong class="block font-geist">Horário de atendimento</strong><span class="text-sm leading-6 text-muted">Segunda a sexta, das 08:00 às 12:00 e das 13:00 às 17:00</span></span>
+              </div>
+              <div class="card flex items-start gap-4 rounded-2xl p-4">
+                <span class="icon-box shrink-0"><i data-lucide="map-pin" class="h-5 w-5"></i></span>
+                <span><strong class="block font-geist">Endereço</strong><span class="text-sm leading-6 text-muted">R. Felício Antônio Mascaro, 615 - Vila Claro 2, Santo Antônio da Platina - PR, 86430-000</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-strong form-card animate-on-scroll rounded-[1rem] p-5 md:p-7" style="animation: fadeSlideIn 1s ease-out .24s both;">
+            <div class="form-header">
+              <div>
+                <p class="font-geist text-xl font-semibold tracking-tight">Solicite um atendimento</p>
+                <p class="mt-2 text-sm leading-6 text-muted">Preencha os dados abaixo e fale com a equipe da V4 Saúde pelo WhatsApp.</p>
+              </div>
+            </div>
+
+            <div id="formSuccess" class="form-alert" role="status" aria-live="polite" aria-hidden="true">
+              <i data-lucide="check-circle-2" class="h-5 w-5"></i>
+              <div>
+                <strong>Mensagem enviada com sucesso.</strong>
+                <span>O WhatsApp foi aberto com uma saudação e os dados preenchidos.</span>
+              </div>
+            </div>
+
+            <form id="contactForm" class="grid gap-4" novalidate>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <label class="form-field" for="nome">
+                  <span>Nome </span>
+                  <input id="nome" class="input" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required minlength="3">
+                  <small class="field-error" data-error-for="nome"></small>
+                </label>
+
+                <label class="form-field" for="telefone">
+                  <span>Telefone com DDD<small class="field-hint"></small></span>
+                  <input id="telefone" class="input" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(43) 99999-0000" pattern="^\(?[1-9]{2}\)?\s?9?\d{4}-?\d{4}$" maxlength="15" required>
+                  <small class="field-error" data-error-for="telefone"></small>
+                </label>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <label class="form-field" for="email">
+                  <span>E-mail</span>
+                  <input id="email" class="input" name="email" type="email" inputmode="email" autocomplete="email" placeholder="seuemail@exemplo.com" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" required>
+                  <small class="field-error" data-error-for="email"></small>
+                </label>
+
+                <label class="form-field" for="instituicao">
+                  <span>Instituição </span>
+                  <input id="instituicao" class="input" name="instituicao" type="text" placeholder="Hospital, clínica, laboratório ou órgão público" autocomplete="organization">
+                  <small class="field-error" data-error-for="instituicao"></small>
+                </label>
+              </div>
+
+              <label class="form-field" for="mensagem">
+                <span>Mensagem</span>
+                <textarea id="mensagem" class="input min-h-32 resize-y" name="mensagem" placeholder="Como podemos ajudar?" required minlength="10"></textarea>
+                <small class="field-error" data-error-for="mensagem"></small>
+              </label>
+
+              <button id="submitContact" class="btn btn-brand w-full !py-4" type="submit">
+                <i data-lucide="message-circle" class="h-5 w-5"></i>
+                Enviar mensagem via WhatsApp
+                <span class="shine"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="localizacao" class="relative z-20 border-t border-white/10">
+      <div class="container-x py-12">
+        <div class="mb-6 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div class="animate-on-scroll" style="animation: fadeSlideIn 1s ease-out .12s both;">
+            <span class="eyebrow"><i data-lucide="map" class="h-3.5 w-3.5"></i> Localização</span>
+            <h2 class="mt-5 font-geist text-3xl font-semibold tracking-tight md:text-5xl">Estamos em Santo Antônio da Platina.</h2>
+          </div>
+          <a class="btn btn-glass animate-on-scroll" style="animation: fadeSlideIn 1s ease-out .24s both;" href="https://www.google.com/maps/search/?api=1&query=R.%20Fel%C3%ADcio%20Ant%C3%B4nio%20Mascaro%2C%20615%20-%20Vila%20Claro%202%2C%20Santo%20Ant%C3%B4nio%20da%20Platina%20-%20PR%2C%2086430-000" target="_blank" rel="noopener"><i data-lucide="navigation" class="h-5 w-5"></i> Abrir no Google Maps <span class="shine"></span></a>
+        </div>
+        <div class="animate-on-scroll overflow-hidden rounded-[1rem] border border-white/10" style="animation: fadeSlideIn 1s ease-out .34s both;">
+          <iframe class="map-frame" src="https://www.google.com/maps?q=R.%20Fel%C3%ADcio%20Ant%C3%B4nio%20Mascaro%2C%20615%20-%20Vila%20Claro%202%2C%20Santo%20Ant%C3%B4nio%20da%20Platina%20-%20PR%2C%2086430-000&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa com a localização da V4 Saúde"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+<footer class="site-footer">
+    <div class="container-x footer-shell">
+      <div class="footer-main">
+        <div class="footer-brand-block">
+          <a href="#inicio" class="footer-logo" aria-label="V4 Saúde">
+            <img src="assets/logo.png" alt="V4 Saúde" />
+          </a>
+          <p class="footer-description">Distribuidora com sede no Norte Pioneiro do Paraná, especializada em atender instituições públicas e privadas com excelência em logística, documentação e suporte técnico.</p>
+        </div>
+
+        <nav aria-label="Links do rodapé">
+          <h3 class="footer-heading">Navegação</h3>
+          <ul class="footer-list">
+            <li><a class="footer-link" href="#sobre">Sobre</a></li>
+            <li><a class="footer-link" href="#solucoes">Soluções</a></li>
+            <li><a class="footer-link" href="#estrutura">Estrutura</a></li>
+            <li><a class="footer-link" href="#equipe">Equipe</a></li>
+            <li><a class="footer-link" href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h3 class="footer-heading">Contato</h3>
+          <ul class="footer-list">
+            <li class="footer-contact-item">
+              <span class="footer-contact-icon" aria-hidden="true"><i data-lucide="phone"></i></span>
+              <a class="footer-link" href="tel:+5543999187792">(43) 99918-7792</a>
+            </li>
+            <li class="footer-contact-item">
+              <span class="footer-contact-icon" aria-hidden="true"><i data-lucide="map-pin"></i></span>
+              <span>R. Felício Antônio Mascaro, 615 - Vila Claro 2, Santo Antônio da Platina - PR, 86430-000</span>
+            </li>
+            <li class="footer-contact-item">
+              <span class="footer-contact-icon" aria-hidden="true"><i data-lucide="clock"></i></span>
+              <span>Segunda a sexta, das 08:00 às 12:00 e das 13:00 às 17:00</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Redes sociais</h3>
+          <p class="footer-social-copy">Acompanhe novidades, conteúdos institucionais e atualizações da V4 Saúde.</p>
+          <div class="footer-social" aria-label="Redes sociais da V4 Saúde">
+            <a class="footer-social-link" href="https://www.instagram.com/v4saude/" target="_blank" rel="noopener" aria-label="Instagram da V4 Saúde">
+              <span class="social-icon" aria-hidden="true">
+                <svg aria-hidden="true" width="27" height="27" viewBox="0 0 24 24">
+                  <defs><radialGradient id="instagram-gradient-footer" cx="30%" cy="107%" r="150%"><stop offset="0" stop-color="#fdf497"/><stop offset="0.08" stop-color="#fdf497"/><stop offset="0.38" stop-color="#fd5949"/><stop offset="0.62" stop-color="#d6249f"/><stop offset="1" stop-color="#285AEB"/></radialGradient></defs>
+                  <path fill="url(#instagram-gradient-footer)" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95Zm8.94 1.35a1.11 1.11 0 1 1 0 2.22 1.11 1.11 0 0 1 0-2.22ZM12 6.85A5.15 5.15 0 1 1 6.85 12 5.16 5.16 0 0 1 12 6.85Zm0 1.8A3.35 3.35 0 1 0 15.35 12 3.35 3.35 0 0 0 12 8.65Z"/>
+                </svg>
+              </span>
+            </a>
+            <a class="footer-social-link" href="https://www.linkedin.com/company/v4-sa%C3%BAde/" target="_blank" rel="noopener" aria-label="LinkedIn da V4 Saúde">
+              <span class="social-icon" aria-hidden="true">
+                <svg aria-hidden="true" width="27" height="27" viewBox="0 0 24 24"><path fill="#0A66C2" d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.46-2.14 2.95v5.68H9.33V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.28 2.38 4.28 5.48v6.27ZM5.31 7.42a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm1.78 13.03H3.53V8.99h3.56v11.46ZM22 0H2C.89 0 0 .88 0 1.97v20.06C0 23.12.89 24 2 24h20c1.11 0 2-.88 2-1.97V1.97C24 .88 23.11 0 22 0Z"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-back-row">
+        <a id="backToTop" class="back-to-top" href="#inicio" aria-label="Voltar ao topo">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg>
+          <span>Voltar ao topo</span>
+        </a>
+      </div>
+
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> V4 Saúde. Todos os direitos reservados.</p>
+        <p>Design responsivo com foco em clareza comercial, acessibilidade e performance.</p>
+      </div>
+    </div>
+  </footer>
+<a class="floating-cta" href="https://wa.me/5543999187792?text=Ol%C3%A1%2C%20V4%20Sa%C3%BAde%21%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20produtos%20e%20solu%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="Falar com a V4 Saúde pelo WhatsApp">
+    <svg aria-hidden="true" width="25" height="25" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.82 11.82 0 0 0 12.11 0C5.56 0 .24 5.32.24 11.87c0 2.09.55 4.13 1.59 5.93L.14 24l6.35-1.67a11.86 11.86 0 0 0 5.62 1.43h.01c6.55 0 11.87-5.32 11.87-11.87 0-3.17-1.23-6.15-3.47-8.41Zm-8.4 18.28h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.22-3.76.99 1-3.67-.24-.38a9.85 9.85 0 0 1-1.51-5.24C2.22 6.42 6.66 2 12.12 2a9.8 9.8 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.9 6.98c0 5.45-4.44 9.88-9.89 9.88Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.21 5.08 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+    
+  </a>
+
+  <script>
+    (function () {
+      const once = true;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            if (once) observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
+      document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+    })();
+
+    const htmlEl = document.documentElement;
+    const savedTheme = localStorage.getItem('v4-theme');
+    if (savedTheme) htmlEl.setAttribute('data-theme', savedTheme);
+
+    function syncThemeControls() {
+      const isLight = htmlEl.getAttribute('data-theme') === 'light';
+      document.querySelectorAll('#themeToggle, #themeToggleMobile').forEach((button) => {
+        button?.setAttribute('aria-pressed', String(isLight));
+      });
+      const mobileLabel = document.getElementById('themeLabelMobile');
+      if (mobileLabel) mobileLabel.textContent = isLight ? 'Modo claro' : 'Modo escuro';
+    }
+
+    function toggleTheme() {
+      const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', next);
+      localStorage.setItem('v4-theme', next);
+      syncThemeControls();
+    }
+
+    document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('themeToggleMobile')?.addEventListener('click', toggleTheme);
+
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileCloseButton = document.getElementById('mobileCloseButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = mobileMenuButton?.querySelector('.menu-icon');
+    const closeIcon = mobileMenuButton?.querySelector('.close-icon');
+
+    function setMobileMenu(open) {
+      mobileMenu?.classList.toggle('open', open);
+      mobileMenu?.setAttribute('aria-hidden', String(!open));
+      mobileMenuButton?.setAttribute('aria-expanded', String(open));
+      menuIcon?.classList.toggle('hidden', open);
+      closeIcon?.classList.toggle('hidden', !open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    mobileMenuButton?.addEventListener('click', () => setMobileMenu(!mobileMenu?.classList.contains('open')));
+    mobileCloseButton?.addEventListener('click', () => setMobileMenu(false));
+    mobileMenu?.addEventListener('click', (event) => {
+      if (event.target === mobileMenu) setMobileMenu(false);
+    });
+    mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMobileMenu(false)));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setMobileMenu(false);
+    });
+
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    const phoneRegex = /^\(?[1-9]{2}\)?\s?9?\d{4}-?\d{4}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+    function setFieldState(field, valid, message = '') {
+      const wrapper = field?.closest('.form-field');
+      const error = wrapper?.querySelector('.field-error');
+      if (!wrapper) return;
+      wrapper.classList.toggle('invalid', !valid);
+      wrapper.classList.toggle('valid', valid && Boolean(field.value.trim()));
+      field.setAttribute('aria-invalid', String(!valid));
+      if (error) error.textContent = message;
+    }
+
+    function normalizePhone(value) {
+      const digits = String(value || '').replace(/\D/g, '').slice(0, 11);
+      if (digits.length <= 2) return digits;
+      if (digits.length <= 7) return '(' + digits.slice(0, 2) + ') ' + digits.slice(2);
+      if (digits.length <= 10) return '(' + digits.slice(0, 2) + ') ' + digits.slice(2, 6) + '-' + digits.slice(6);
+      return '(' + digits.slice(0, 2) + ') ' + digits.slice(2, 7) + '-' + digits.slice(7);
+    }
+
+    function validateContactForm(showErrors = true) {
+      if (!contactForm) return false;
+      const fields = {
+        nome: contactForm.elements.nome,
+        telefone: contactForm.elements.telefone,
+        email: contactForm.elements.email,
+        mensagem: contactForm.elements.mensagem
+      };
+
+      const values = {
+        nome: fields.nome.value.trim(),
+        telefone: fields.telefone.value.trim(),
+        email: fields.email.value.trim(),
+        mensagem: fields.mensagem.value.trim()
+      };
+
+      const rules = [
+        { field: fields.nome, valid: values.nome.length >= 3, message: 'Informe seu nome com pelo menos 3 caracteres.' },
+        { field: fields.telefone, valid: phoneRegex.test(values.telefone), message: 'Informe um telefone válido com DDD. Exemplo: (43) 99918-7792.' },
+        { field: fields.email, valid: emailRegex.test(values.email), message: 'Informe um e-mail válido. Exemplo: contato@empresa.com.br.' },
+        { field: fields.mensagem, valid: values.mensagem.length >= 10, message: 'Descreva sua necessidade com pelo menos 10 caracteres.' }
+      ];
+
+      rules.forEach(({ field, valid, message }) => {
+        if (showErrors || field.value.trim()) setFieldState(field, valid, valid ? '' : message);
+      });
+
+      return rules.every((rule) => rule.valid);
+    }
+
+    contactForm?.elements.telefone?.addEventListener('input', (event) => {
+      event.target.value = normalizePhone(event.target.value);
+      if (event.target.value.trim()) validateContactForm(false);
+    });
+
+    ['nome', 'email', 'mensagem'].forEach((name) => {
+      contactForm?.elements[name]?.addEventListener('input', () => {
+        if (contactForm.elements[name].value.trim()) validateContactForm(false);
+      });
+    });
+
+    contactForm?.addEventListener('submit', function(event) {
+      event.preventDefault();
+      formSuccess?.classList.remove('show');
+      formSuccess?.setAttribute('aria-hidden', 'true');
+
+      if (!validateContactForm(true)) {
+        const firstInvalid = contactForm.querySelector('.form-field.invalid .input');
+        firstInvalid?.focus();
+        return;
+      }
+
+      const form = new FormData(event.currentTarget);
+      const nome = String(form.get('nome') || '').trim();
+      const telefone = String(form.get('telefone') || '').trim();
+      const email = String(form.get('email') || '').trim();
+      const instituicao = String(form.get('instituicao') || '').trim() || 'Não informado';
+      const mensagem = String(form.get('mensagem') || '').trim();
+      const whatsappText = [
+        'Olá, V4 Saúde! Tudo bem?',
+        '',
+        'Recebi o contato pelo site e gostaria de solicitar atendimento.',
+        '',
+        'Nome: ' + nome,
+        'Telefone: ' + telefone,
+        'E-mail: ' + email,
+        'Instituição: ' + instituicao,
+        '',
+        'Mensagem:',
+        mensagem,
+        '',
+        'Aguardo o retorno. Obrigado(a)!'
+      ].join('\n');
+
+      formSuccess?.classList.add('show');
+      formSuccess?.setAttribute('aria-hidden', 'false');
+      formSuccess?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      window.open('https://wa.me/5543999187792?text=' + encodeURIComponent(whatsappText), '_blank', 'noopener');
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    syncThemeControls();
+  </script>
+</body>
+</html>
